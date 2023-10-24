@@ -1,0 +1,11 @@
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
