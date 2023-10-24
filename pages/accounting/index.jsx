@@ -1,7 +1,9 @@
-import Form from "@/components/Form";
-import List from "@/components/List";
 import Link from "next/link";
 import { useState } from "react";
+import Layout from "../../components/Layout";
+import styles from "./accounting.module.css";
+import Form from "../../components/Form/Form";
+import List from "../../components/List/List";
 
 const transactionTypes = [
   { id: 1, type: "收入", positive: true },
@@ -25,7 +27,7 @@ export default function Accounting() {
   function handleAddTransaction(data) {
     data.id = transactions.length + 1;
     setTransactions((transactions) => [...transactions, data]);
-    setTotal(total + parseInt(data.amount));
+    setTotal(total + data.amount);
   }
   function handleDeleteTransaction(dataId) {
     const newTransactions = transactions.filter((data) => data.id !== dataId);
@@ -33,7 +35,7 @@ export default function Accounting() {
     setTotal(newTransactions.reduce((acc, data) => (acc += data.amount), 0));
   }
   return (
-    <>
+    <Layout className={styles.container}>
       <Form
         transactionTypes={transactionTypes}
         onAddTransaction={handleAddTransaction}
@@ -43,9 +45,9 @@ export default function Accounting() {
         transactions={transactions}
         onDeleteTransaction={handleDeleteTransaction}
       ></List>
-      <button>
+      <button className={styles.button}>
         <Link href="/">回到首頁</Link>
       </button>
-    </>
+    </Layout>
   );
 }

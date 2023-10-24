@@ -1,25 +1,35 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+body {
+  padding: 0;
+  margin: 0;
+  
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 button {
   padding: 5px 10px;
   background-color: #f3f3f3;
-  border: 1px solid #919191;
+  border: 1px solid #cacaca;
   border-radius: 5px;
 }
 
-select {
+input, select {
   padding: 5px 10px;
-  border: 1px solid #919191;
+  border: 1px solid #cacaca;
   border-radius: 5px;
 }
 
-input {
+/* input {
   padding: 5px;
-  border: 1px solid #919191;
+  border: 1px solid #cacaca;
   border-radius: 5px;
-}
+} */
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
