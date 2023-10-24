@@ -1,5 +1,4 @@
 import Layout from "../components/Layout";
-import "../styles/globals.css";
 import styles from "./home.module.css";
 import Link from "next/link";
 
