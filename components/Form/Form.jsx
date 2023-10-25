@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Form.module.css";
 
 export default function Form({ transactionTypes, onAddTransaction }) {
-  const [type, setType] = useState(transactionTypes[0].type);
+  const [type, setType] = useState("");
   const [item, setItem] = useState("");
   const [amount, setAmount] = useState("");
+
+  useEffect(() => {
+    if (transactionTypes.length > 0) {
+      setType(transactionTypes[0]["type"]);
+    }
+  }, [transactionTypes]);
 
   function handleAddTransaction() {
     if (item !== "" && amount !== "") {
       const filterType = transactionTypes.filter((data) => data.type === type);
       const isPostive = filterType["0"]["positive"];
       const dataToAdd = {
-        id: undefined,
         item: item,
         amount: parseInt(isPostive ? amount : -amount),
       };
